@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Are You Bored?</title>
+   <style>
+      #a1, #a2 {
+         visibility: hidden;
+      }
+
+      ul {
+         list-style: none;
+      }
+      body {
+         background-color: black;
+      }
+
+      * {
+         color: white;
+      }
+
+      a:hover {
+         color:aqua;
+      }
+
+      button {
+         color: black;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- introduce the website to user-->
+   <div id="intro">
+      <h2>Hey</h2>
+      <p>Did you have a good day?</p>
+      <p>
+         <button class="button" name="greeting" value="Y">Yeah, I'm doing great!</button>
+         <button class="button" name="greeting" value="N">No, it wasn't great</button>
+      </p>
+      <!-- implement later; the buttons will respond in turn and
+      lead the user to game -->
+      <p id="a1">That's awesome! I just built this website with some of my favorite browser-based games! Click the button below</p>
+      <p id="a2">Aww, that's too bad. :( I hope we can play some games together to help cheer you up!</p>
+   </div>
+
+   <!-- Must create a larger library of games. https://www.speedrun.com/ has been very useful for this!-->
+   <div id="games">
+
+      <p>Compare your time to the <a href="https://www.speedrun.com/">top speedruners around the world!</a></p>
+      <ul>
+         <li><a href="https://www.newgrounds.com/portal/view/371290">Indestructotank</a></li>
+         <li><a href="http://slither.io/">Slither</a></li>
+         <li><a href="https://adarkroom.doublespeakgames.com/">A Dark Room</a></li>
+         <li><a href="https://www.seterra.com/#quizzes">Seterra</a></li>
+         <li><a href="https://poki.com/en/g/crossy-road">Crossy Road</a></li>
+         <li><a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a></li>
+      </ul>
+      
+   </div>
+</body>
+
+</html>
