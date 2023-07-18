@@ -1,0 +1,132 @@
+#greeting {
+    text-align:center;
+    margin:20%;
+    background-color:#0f2027;
+    border-radius: 10px;
+
+ }
+
+ ul {
+    list-style: none;
+ }
+ body {
+    font-family:'Work Sans', sans-serif;
+    margin:0;
+    padding:0;
+    background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 22s ease infinite;
+    -moz-animation: AnimationName 22s ease infinite;
+    animation: AnimationName 22s ease infinite;
+ }
+
+ @-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+ }
+
+ @-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+ }
+ @keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+ }
+
+ * {
+    color: white;
+ }
+
+ .button {
+    border-radius: 10px;
+    border-color:#199c77;
+    background-color:#0f2027;
+    box-shadow: 10px;
+    margin: 8px;
+    text-align:center;
+    height: 25px;
+    width:auto;
+ }
+
+ .hide {
+    display:none;
+ }
+
+ #portrait {
+    display:none;
+ }
+
+ #me {
+    width: 50%;
+    border-radius: 20px;
+    margin: 0;
+ }
+
+ .gameBanner {
+    background-size:cover;
+    display:block;
+    width:100%;
+    height:400px;
+
+ }
+
+ .gameTitle {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin:0;
+    text-align:center;
+ }
+
+ #tankBanner {
+    background-image:url(media/indestructotank-gb-cover.jpg);
+ }
+
+ #cookieBanner {
+    background-image:url(media/cookiebanner.jpg);
+ }
+
+ #slitherBanner {
+    background-image:url(media/slither.jpg);
+ }
+
+ #crossyBanner {
+    background-image:url(media/crossybanner.jpg);
+ }
+
+ #darkRoomBanner {
+    background-image:url(media/darkroombanner.jpg);
+ }
+
+ #seterraBanner {
+    background-image:url(media/seterrabanner.jpg);
+ }
+ .gameText {
+    margin-top:0;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-left-style:solid;
+    border-width: 10px;
+    border-color:#199c77;
+    background-color:#0f2027;
+ }
+
+ .gameText p {
+    padding: 20px;
+ }
+ #greeting p {
+    margin: 10px;
+ }
+
+ #end {
+    text-align:center;
+    align-items:center;
+    justify-content:center;
+    margin:40%;
+    background-color:#0f2027;
+    padding:1em;
+    border-radius: 10px;
+ }
