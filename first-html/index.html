@@ -4,49 +4,295 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Are You Bored?</title>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800">
+   
    <style>
-      #a1, #a2 {
-         visibility: hidden;
+      #greeting {
+         text-align:center;
+         margin:20%;
+         background-color:#0f2027;
+         border-radius: 10px;
+
       }
 
       ul {
          list-style: none;
       }
       body {
-         background-color: black;
+         font-family:'Work Sans', sans-serif;
+         margin:0;
+         padding:0;
+         background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+         background-size: 600% 600%;
+         -webkit-animation: AnimationName 22s ease infinite;
+         -moz-animation: AnimationName 22s ease infinite;
+         animation: AnimationName 22s ease infinite;
+      }
+
+      @-webkit-keyframes AnimationName {
+         0%{background-position:0% 50%}
+         50%{background-position:100% 50%}
+         100%{background-position:0% 50%}
+      }
+
+      @-moz-keyframes AnimationName {
+         0%{background-position:0% 50%}
+         50%{background-position:100% 50%}
+         100%{background-position:0% 50%}
+      }
+      @keyframes AnimationName {
+         0%{background-position:0% 50%}
+         50%{background-position:100% 50%}
+         100%{background-position:0% 50%}
       }
 
       * {
          color: white;
       }
 
-      a:hover {
-         color:aqua;
+      .button {
+         border-radius: 10px;
+         border-color:#199c77;
+         background-color:#0f2027;
+         box-shadow: 10px;
+         margin: 8px;
+         text-align:center;
+         height: 25px;
+         width:auto;
       }
 
-      button {
-         color: black;
+      .hide {
+         display:none;
       }
+
+      #portrait {
+         display:none;
+      }
+
+      #me {
+         width: 50%;
+         border-radius: 20px;
+         margin: 0;
+      }
+
+      .gameBanner {
+         background-size:cover;
+         display:block;
+         width:100%;
+         height:400px;
+
+      }
+
+      .gameTitle {
+         padding-top: 30px;
+         padding-bottom: 30px;
+         margin:0;
+         text-align:center;
+      }
+
+      #tankBanner {
+         background-image:url(media/indestructotank-gb-cover.jpg);
+      }
+
+      #cookieBanner {
+         background-image:url(media/cookiebanner.jpg);
+      }
+
+      #slitherBanner {
+         background-image:url(media/slither.jpg);
+      }
+
+      #crossyBanner {
+         background-image:url(media/crossybanner.jpg);
+      }
+
+      #darkRoomBanner {
+         background-image:url(media/darkroombanner.jpg);
+      }
+
+      #seterraBanner {
+         background-image:url(media/seterrabanner.jpg);
+      }
+      .gameText {
+         margin-top:0;
+         margin-left: 20px;
+         margin-right: 20px;
+         border-left-style:solid;
+         border-width: 10px;
+         border-color:#199c77;
+         background-color:#0f2027;
+      }
+
+      .gameText p {
+         padding: 20px;
+      }
+      #greeting p {
+         margin: 10px;
+      }
+
+      #end {
+         text-align:center;
+         align-items:center;
+         justify-content:center;
+         margin:40%;
+         background-color:#0f2027;
+         padding:1em;
+         border-radius: 10px;
+      }
+
    </style>
 </head>
 
+<!-- left to do:
+      assign a number to each game div
+      additional styles for fun?-->
 <body>
-   <!-- introduce the website to user-->
-   <div id="intro">
-      <h2>Hey</h2>
-      <p>Did you have a good day?</p>
-      <p>
-         <button class="button" name="greeting" value="Y">Yeah, I'm doing great!</button>
-         <button class="button" name="greeting" value="N">No, it wasn't great</button>
-      </p>
-      <!-- implement later; the buttons will respond in turn and
-      lead the user to game -->
-      <p id="a1">That's awesome! I just built this website with some of my favorite browser-based games! Click the button below</p>
-      <p id="a2">Aww, that's too bad. :( I hope we can play some games together to help cheer you up!</p>
+
+   <!-- this is the chatbot feature. user will converse with the bot until they click a button that activates the game window. look at all those divs!-->
+   <div id="greeting">
+      <div id="salutations">
+         <h1>hey there!</h1>
+         <p>did you have a good day?</p>
+         <button id="Y" class="button" type="button" value="Y" onclick="greeting(this.value)" >Yes, my day was pretty good :)</button>
+         <button id="N"class="button" type="button" value="N" onclick="greeting(this.value)">No, it's not going great...</button>
+      </div>
+      
+      <div id="chatbot">
+         <div id="response"></div>
+         <div id="portrait"> 
+            <img id="me" src='media/PXL_20210705_185811417.jpg' alt='portrait'>
+         </div>
+         <div id="secondResponse"></div>
+      </div>
+   </div>
+   
+   <!-- game window! -->
+   <!-- weird bug where the text inside of the button doesn't appear for some reason?? Idk man  -->
+   <div id="gameWindow" class="hide">
+      
+      <div id="indestructotank" class="hide">
+         <div class="titleBG">
+            <h2 class="gameTitle">INDESTRUCTOTANK</h2>
+         </div>
+         <div id="tankBanner" class="gameBanner"></div>
+         <div class="gameText">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna 
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit 
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+            occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.</p>      
+               
+         </div>
+         <button id='YE' class='button' type='button' value='YE' onclick='greeting(this.value)'>Hit me again!</button>
+
+      </div>
+
+      <div id="cookieclicker" class="hide">
+         <div class="titleBG">
+            <h2 class="gameTitle">COOKIECLICKER</h2>
+         </div>
+         <div id="cookieBanner" class="gameBanner"></div>
+         <div class="gameText">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna 
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit 
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+            occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.</p>                    
+         </div>
+         <button id='YE' class='button' type='button' value='YE' onclick='greeting(this.value)'>Gimme another one!</button>
+      </div>
+
+      <div id="slither" class="hide">
+         <div class="titleBG">
+            <h2 class="gameTitle">SLITHER.IO</h2>
+         </div>
+         <div id="slitherBanner" class="gameBanner"></div>
+         <div class="gameText">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna 
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit 
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+            occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.</p>                        
+         </div>
+         <button id='YE' class='button' type='button' value='YE' onclick='greeting(this.value)'>Gimme another one!</button>
+
+      </div>
+
+      <div id="seterra" class="hide">
+            <div class="titleBG">
+               <h2 class="gameTitle">SETERRA</h2>
+            </div>
+            <div id="seterraBanner" class="gameBanner"></div>
+            <div class="gameText">
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+               sed do eiusmod tempor incididunt ut labore et dolore magna 
+               aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+               ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+               Duis aute irure dolor in reprehenderit in voluptate velit 
+               esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+               occaecat cupidatat non proident, sunt in culpa qui officia 
+               deserunt mollit anim id est laborum.</p>                        
+            </div>
+            <button id='YE' class='button' type='button' value='YE' onclick='greeting(this.value)'>Gimme another one!</button>
+
+      </div>
+
+
+      <div id="crossy" class="hide">
+            <div class="titleBG">
+               <h2 class="gameTitle">CROSSY</h2>
+            </div>
+            <div id="crossyBanner" class="gameBanner"></div>
+            <div class="gameText">
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+               sed do eiusmod tempor incididunt ut labore et dolore magna 
+               aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+               ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+               Duis aute irure dolor in reprehenderit in voluptate velit 
+               esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+               occaecat cupidatat non proident, sunt in culpa qui officia 
+               deserunt mollit anim id est laborum.</p>                        
+            </div>
+            <button id='YE' class='button' type='button' value='YE' onclick='greeting(this.value)'>Gimme another one!</button>
+
+      </div>
+
+      <div id="darkRoom" class="hide">
+               <div class="titleBG">
+                  <h2 class="gameTitle">A DARK ROOM</h2>
+               </div>
+               <div id="darkRoomBanner" class="gameBanner"></div>
+               <div class="gameText">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit 
+                  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+                  occaecat cupidatat non proident, sunt in culpa qui officia 
+                  deserunt mollit anim id est laborum.</p>                        
+            </div>
+            <button id='YE' class='button' type='button' value='YE' onclick='greeting(this.value)'>Gimme another one!</button>
+
+      </div>
+
+      <div id="end" class="hide">
+         <h1>That's it! (for now)</h1>
+      </div>
    </div>
 
+
    <!-- Must create a larger library of games. https://www.speedrun.com/ has been very useful for this!-->
-   <div id="games">
+   <!-- <div id="games">
 
       <p>Compare your time to the <a href="https://www.speedrun.com/">top speedruners around the world!</a></p>
       <ul>
@@ -57,8 +303,210 @@
          <li><a href="https://poki.com/en/g/crossy-road">Crossy Road</a></li>
          <li><a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a></li>
       </ul>
-      
-   </div>
+   </div> -->
+
+   <script>
+
+      // the chat bot function!!! look at all those if elses. dont forget to check each button and make sure they work properly
+      function greeting(value) {
+         
+         response=document.getElementById(value).innerHTML = "";
+         
+         // "How was your day" "My day was good."
+         if (value==='Y') {
+            let response=document.getElementById(value).innerHTML += 
+            "<h2>Yes, my day was pretty good :)</h2>";
+            document.getElementById("response").innerHTML += response;
+            
+            document.getElementById("response").innerHTML += 
+            "<p>Cool! Now that I've got you here, isn't it such a bummer that Adobe stopped supporting Flash? Flash games were the best!</p>";
+            document.getElementById("response").innerHTML += 
+            "<button id='W' class='button' type='button' value='W' onclick='greeting(this.value)'>Yeah, they were best! :D</button> <button id='L' class='button' type='button' value='L' onclick='greeting(this.value)'>Nah, flash games are lame. You're lame.</button>";
+            
+            document.getElementById("Y").classList.add("hide");
+            document.getElementById("N").classList.add("hide");
+
+         }
+
+         // "How was your day" "My day was bad"
+         else if (value==="N") {
+            let response=document.getElementById(value).innerHTML += 
+            "<h2>No, it's not going great...</h2>";
+            document.getElementById("response").innerHTML += response;
+
+            document.getElementById("response").innerHTML += 
+            "<p>Oh no! :( I'm sorry. Hopefully playing some flash games would make you feel better!</p>";
+            
+            document.getElementById("response").innerHTML += 
+            "<button id='S' class='button' type='button' value='S' onclick='greeting(this.value)'>Sure!</button>";
+            
+            document.getElementById("Y").classList.add("hide");
+            document.getElementById("N").classList.add("hide");
+         }
+
+         // "Do you like flash games?" "Yes they were the best"
+         else if (value==="W" || value==="WW" || value==="WWW" || value==="WWWW") {
+            
+            if (value==="WW") {
+               let response=document.getElementById(value).innerHTML += 
+               "<h2>Yes!</h2>";
+               document.getElementById("response").innerHTML += response;
+            }
+
+            else if (value==="WWW") {
+               let response=document.getElementById(value).innerHTML += 
+               "<h2>Absolutely!</h2>";
+               document.getElementById("response").innerHTML += response;
+            }
+
+            else if (value==="WWWW") {
+               let response=document.getElementById(value).innerHTML += 
+               "<h2>Positively!!!</h2>";
+               document.getElementById("response").innerHTML += response;
+            }
+
+            else if (value==="W"){
+               let response=document.getElementById(value).innerHTML += 
+               "<h2>Yeah, they were best! :D</h2>";
+               document.getElementById("response").innerHTML += response;
+            }
+            
+            document.getElementById("response").innerHTML += 
+            "<p>Right?! I knew we'd be friends.</p>";
+
+            document.getElementById("response").innerHTML += 
+            "<button id='SU' class='button' type='button' value='SU' onclick='greeting(this.value)'>Wait, who are you?</button>";
+            
+            document.getElementById("W").classList.add("hide");
+            document.getElementById("WW").classList.add("hide");
+            document.getElementById("WWW").classList.add("hide");
+            document.getElementById("WWWW").classList.add("hide");
+            document.getElementById("L").classList.add("hide");
+         }
+
+         //// "Do you like flash games?" "no they suck (lame person answer)"
+         else if (value==="L") {
+            let response=document.getElementById(value).innerHTML += 
+            "<h2>Nah, flash games are lame. You're lame.</h2>";
+            document.getElementById("response").innerHTML += response;
+            
+            document.getElementById("response").innerHTML += 
+            "<p>Well, you don't have to be mean. :( Let's try again. Flash games were the best RIGHT?</p>";
+
+            document.getElementById("response").innerHTML += 
+            "<button id='WW' class='button' type='button' value='WW' onclick='greeting(this.value)'>Yes!</button> <button id='WWW' class='button' type='button' value='WWW' onclick='greeting(this.value)'>Absolutely!</button> <button id='WWWW' class='button' type='button' value='WWWW' onclick='greeting(this.value)'>Positively!!!</button>";
+            
+            document.getElementById("W").classList.add("hide");
+            document.getElementById("L").classList.add("hide");
+         }
+
+         // "We get along" "Wait who are you?"
+         else if (value==="SU") {
+            response=document.getElementById(value).innerHTML += 
+            "<h2>Wait, who are you?</h2>";
+            document.getElementById("response").innerHTML += response;
+
+            document.getElementById("portrait").innerHTML += 
+            "<p>Oh me? I'm John Marc Zayas! I'm budding web developer and I built this site! I just think flash games are really nifty. Wanna see some of my favorites?</p>";
+            slideDown(document.getElementById('portrait'), 1000);
+
+            document.getElementById("secondResponse").innerHTML += 
+            "<br><button id='YE' class='button' type='button' value='YE' onclick='greeting(this.value)'>Sure, sounds fun!</button>";
+            document.getElementById("SU").classList.add("hide");
+
+            }
+
+         // "gameWindow activator "
+         // would be cool to add the slideUp function to hide the chat bot
+         else if (value==="YE" || value==="S") {
+            document.getElementById("chatbot").classList.add("hide");
+            document.getElementById("greeting").classList.add("hide");
+
+            document.getElementById("gameWindow").classList.remove("hide");
+            
+            // gameShuffler();
+            replaceHTML();
+            }
+         }
+         // create a dictionary and assign each key to and ID of game 
+         function gameIndex() {
+            const ar = [];
+            for (let i = 0; i < 6; i++) {
+               ar[i] = i;
+            }
+            ar.sort(function(){return 0.5 - Math.random()});
+            return ar; 
+         }
+
+         const gameObject = {
+            0: "indestructotank",
+            1: "cookieclicker",
+            2: "slither",
+            3: "seterra",
+            4: "crossy",
+            5: "darkRoom"
+         };
+
+         let gameArray = gameIndex();
+         let gameIterator = 0;
+
+         function gameShuffler() {
+            let arrayNum = gameArray[gameIterator];
+            if (arrayNum !== undefined) {
+               let htmlID = gameObject[arrayNum];
+               gameIterator++;
+               return(htmlID);
+            }
+
+            else {
+               document.getElementById("end").classList.remove('hide');
+            }
+
+
+         }
+
+         function replaceHTML() {
+            let currentID = gameShuffler();
+            for (let i = 0; i < Object.keys(gameObject).length; i++) {
+               document.getElementById(gameObject[i]).classList.add('hide');
+            }
+            document.getElementById(currentID).classList.remove('hide');
+         }
+
+         /* SLIDE DOWN */
+         // takes two arguements: what element you want to target and duration of slide
+      let slideDown = (target, duration=500) => {
+
+         target.style.removeProperty('display');
+         let display = window.getComputedStyle(target).display;
+         if (display === 'none') display = 'block';
+         target.style.display = display;
+         let height = target.offsetHeight;
+         target.style.overflow = 'hidden';
+         target.style.height = 0;
+         target.style.paddingTop = 0;
+         target.style.paddingBottom = 0;
+         target.style.marginTop = 0;
+         target.style.marginBottom = 0;
+         target.offsetHeight;
+         target.style.boxSizing = 'border-box';
+         target.style.transitionProperty = "height, margin, padding";
+         target.style.transitionDuration = duration + 'ms';
+         target.style.height = height + 'px';
+         target.style.removeProperty('padding-top');
+         target.style.removeProperty('padding-bottom');
+         target.style.removeProperty('margin-top');
+         target.style.removeProperty('margin-bottom');
+         window.setTimeout( () => {
+            target.style.removeProperty('height');
+            target.style.removeProperty('overflow');
+            target.style.removeProperty('transition-duration');
+            target.style.removeProprty('transition-property');
+
+         }, duration);
+      }
+
+   </script>
 </body>
 
 </html>

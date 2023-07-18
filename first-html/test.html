@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+
+        .hide {
+            display:none;
+        }
+        body {
+            height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="div"> 
+        <button id="button" type="button" onclick="gameIndex()" onclick="gameActivator()" >Click Me!</button>
+    </div>
+    <div class="hide"> 
+        <p>Secret Text 1!</p>
+    </div>
+    <div class="hide"> 
+        <p>Secret Text 2!</p>
+    </div>
+    <div class="hide"> 
+        <p>Secret Text 3!</p>
+    </div>
+    <div class="hide"> 
+        <p>Secret Text 4!</p>
+    </div>
+    <div class="hide"> 
+        <p>Secret Text 5!</p>
+    </div>
+    <div class="hide"> 
+        <p>Secret Text 6!</p>
+    </div>
+
+    
+    <script>
+    const ar = [];
+    function gameIndex() {
+            for (let i = 0; i < 6; i++) {
+               ar[i] = i;
+            //    console.log(gameObject[i]);
+            }
+            ar.sort(function(){return 0.5 - Math.random()});
+            return ar; 
+         }
+
+    const gameObject = {
+        0: "indestructotank",
+        1: "cookieclicker",
+        2: "slither",
+        3: "seterra",
+        4: "crossy",
+        5: "darkRoom"
+         };
+        
+    function gameActivator() {
+        for (let i = 0; i < 6; i++) {
+            document.write(gameObject[ar[i]]);
+        }
+    }
+
+    // gameIndex();
+    // gameActivator();
+    // console.log(gameObject);
+    // console.log(gameIndex());
+    </script>
+
+</body>
+</html>
